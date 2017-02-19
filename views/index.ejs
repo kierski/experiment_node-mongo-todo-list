@@ -1,31 +1,33 @@
 
 <% include parts/header %>
 
-<main>
 
-<heder class="header">
-  <div class="header__bg"></div>
-    <div class="header__intro">
-    <div class="header__intro--content">
-      <h1>Hello</h1>
-      <span class="typed">Lorem ipsum dolor sit amet.</span>
+
+<div class="container addTodo">
+  <div class="row">
+
+    <div class="col-xs-12 col-md-6">
+      <h3>Add task</h3>
+      <% include parts/form-add %>
     </div>
+
+    <div class="col-xs-12 col-md-5 offset-md-1">
+      <h3>List of tasks</h3>
+      <ul>
+        <% todos.forEach(function(todo) { %>
+          <li>
+            <span><%= todo.text %> - <%= todo.body %></span>
+              <a class="btn btn-success" href="/todo/edit/<%= todo._id %>">Edit</a>
+              <a id="delete-todo" data-id="<%= todo._id %>" href="#" class="btn btn-warning">Delete</a>
+          </li>
+        <% }) %>
+      </ul>
+    </div>
+
   </div>
-</heder>
+</div>
 
-<% include parts/form-add %>
 
-<ul>
-  <% todos.forEach(function(todo) { %>
-    <li>
-      <%= todo.text %> - <%= todo.body %>
-      <a data-id="<%= todo._id %>" href="#" class="delete-todo">Delete</a>
-      <a href="/todo/edit/<%= todo._id %>">Edit</a>
-    </li>
-  <% }) %>
-</ul>
-
-</main>
 
 
 

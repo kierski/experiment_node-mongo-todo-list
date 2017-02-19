@@ -1,14 +1,12 @@
 <form action="/todo/edit/<%= todo._id %>" method="post">
-  <div>
-    <label>Todo name</label>
-    <input type="text" name="text" placeholder="Add todo" value="<%= todo.text %>">
+  <div class="form-group">
+    <label>Edit task's name</label>
+    <input class="form-control" type="text" name="text" placeholder="Add todo" value="<%= todo.text %>">
   </div>
-  <div>
-    <label>Todo body</label>
-    <textarea placeholder="Add body" name="body">
-      <%= todo.body %>
-    </textarea>
+  <div class="form-group">
+    <label>Edit task's description</label>
+    <textarea class="form-control" placeholder="Add body" name="body"><%= todo.body %></textarea>
   </div>
-  <button type="submit">Submit</button>
-  <a href="/">Cancel</a>
+  <button class="btn btn-success"  type="submit">Submit</button>
+  <a class="btn btn-warning" href="/">Cancel</a>
 </form>
