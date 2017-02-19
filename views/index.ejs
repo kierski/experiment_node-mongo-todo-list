@@ -1,24 +1,16 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>todo</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1>todo</h1>
 
-    <% include parts/form %>
+<% include parts/header %>
 
-    <ul>
-      <% todos.forEach(function(todo) { %>
-        <li>
-          <%= todo.text %> - <%= todo.body %>
-          <a data-id="<%= todo._id %>" href="#" class="delete-todo">Delete</a>
-        </li>
-      <% }) %>
-    </ul>
+  <% include parts/form-add %>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
-<script src="javascripts/main.js" charset="utf-8"></script>
-  </body>
-</html>
+  <ul>
+    <% todos.forEach(function(todo) { %>
+      <li>
+        <%= todo.text %> - <%= todo.body %>
+        <a data-id="<%= todo._id %>" href="#" class="delete-todo">Delete</a>
+        <a href="/todo/edit/<%= todo._id %>">Edit</a>
+      </li>
+    <% }) %>
+  </ul>
+
+<% include parts/footer %>

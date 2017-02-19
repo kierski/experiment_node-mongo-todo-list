@@ -1,0 +1,14 @@
+<form action="/todo/edit/<%= todo._id %>" method="post">
+  <div>
+    <label>Todo name</label>
+    <input type="text" name="text" placeholder="Add todo" value="<%= todo.text %>">
+  </div>
+  <div>
+    <label>Todo body</label>
+    <textarea placeholder="Add body" name="body">
+      <%= todo.body %>
+    </textarea>
+  </div>
+  <button type="submit">Submit</button>
+  <a href="/">Cancel</a>
+</form>

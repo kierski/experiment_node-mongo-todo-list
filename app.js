@@ -9,6 +9,8 @@ const index = require('./routes/index');
 const users = require('./routes/users');
 const addTodo = require('./routes/addTodo');
 const deleteTodo = require('./routes/deleteTodo');
+const editTodo = require('./routes/editTodo');
+const sendChangesTodo = require('./routes/sendChangesTodo');
 
 const app = express();
 
@@ -31,6 +33,8 @@ app.get('/', index);
 app.use('/users', users);
 app.post('/todo/add', addTodo);
 app.get('/todo/delete/:id', deleteTodo);
+app.get('/todo/edit/:id', editTodo);
+app.post('/todo/edit/:id', sendChangesTodo);
 
 // connect to mongodb
 MongoClient.connect(url, (err, database) => {
