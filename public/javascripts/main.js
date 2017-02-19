@@ -1,18 +1,18 @@
-$(document).ready(() => {
-  $('.delete-todo').on('click', (e) => {
+'use strict';
+
+$(document).ready(function () {
+  $('.delete-todo').on('click', function (e) {
     $target = $(e.target);
-    const id = $target.attr('data-id');
+    var id = $target.attr('data-id');
     $.ajax({
       type: 'GET',
       url: '/todo/delete/' + id,
-      success: (response) => {
+      success: function success(response) {
         window.location.href = '/';
       },
-      error: (error) => {
-        console.log(error.responseText);
+      error: function error(_error) {
+        console.log(_error.responseText);
       }
     });
   });
 });
-
-console.log('main.js');

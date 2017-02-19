@@ -1,16 +1,32 @@
 
 <% include parts/header %>
 
-  <% include parts/form-add %>
+<main>
 
-  <ul>
-    <% todos.forEach(function(todo) { %>
-      <li>
-        <%= todo.text %> - <%= todo.body %>
-        <a data-id="<%= todo._id %>" href="#" class="delete-todo">Delete</a>
-        <a href="/todo/edit/<%= todo._id %>">Edit</a>
-      </li>
-    <% }) %>
-  </ul>
+<heder class="header">
+  <div class="header__bg"></div>
+    <div class="header__intro">
+    <div class="header__intro--content">
+      <h1>Hello</h1>
+      <span class="typed">Lorem ipsum dolor sit amet.</span>
+    </div>
+  </div>
+</heder>
+
+<% include parts/form-add %>
+
+<ul>
+  <% todos.forEach(function(todo) { %>
+    <li>
+      <%= todo.text %> - <%= todo.body %>
+      <a data-id="<%= todo._id %>" href="#" class="delete-todo">Delete</a>
+      <a href="/todo/edit/<%= todo._id %>">Edit</a>
+    </li>
+  <% }) %>
+</ul>
+
+</main>
+
+
 
 <% include parts/footer %>
